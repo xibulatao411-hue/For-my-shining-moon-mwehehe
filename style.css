@@ -1,0 +1,231 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --dark-green: #123c2b;
+  --green: #26734d;
+  --light-green: #dff3e5;
+  --cream: #f7fff8;
+  --white: #ffffff;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(135deg, #0b2419, #174c35, #347b50);
+  color: var(--dark-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 14px;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  width: 100%;
+  background: rgba(247, 255, 248, 0.97);
+  padding: 32px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
+  animation: appear 0.7s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.emoji {
+  font-size: 44px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: clamp(26px, 6vw, 38px);
+  color: var(--dark-green);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.card > p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #a5c9ae;
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  background: white;
+  color: var(--dark-green);
+  margin-bottom: 14px;
+}
+
+input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(38, 115, 77, 0.13);
+}
+
+button {
+  border: none;
+  padding: 13px 22px;
+  border-radius: 12px;
+  background: var(--green);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+  background: var(--dark-green);
+  transform: translateY(-2px);
+}
+
+#loginForm button {
+  width: 100%;
+}
+
+.error {
+  color: #b42318;
+  font-size: 14px !important;
+  margin-top: 12px;
+  margin-bottom: 0 !important;
+}
+
+.buttons {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.no-button {
+  background: #8a9c8f;
+  position: relative;
+}
+
+#success {
+  padding: 28px 22px;
+}
+
+.subtitle {
+  color: #47745a;
+}
+
+.letter {
+  background: #eff9f0;
+  border: 1px solid #d3e9d7;
+  border-radius: 18px;
+  padding: 24px 20px;
+  text-align: left;
+  margin-top: 18px;
+}
+
+.letter h2 {
+  color: var(--green);
+  font-size: 23px;
+  margin-bottom: 18px;
+}
+
+.letter p {
+  font-size: 16px;
+  line-height: 1.85;
+  margin-bottom: 16px;
+  overflow-wrap: anywhere;
+}
+
+.letter .signature {
+  margin-top: 22px;
+  margin-bottom: 0;
+  color: var(--green);
+  font-weight: bold;
+}
+
+/* Floating hearts in the background */
+.hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  color: rgba(216, 255, 222, 0.6);
+  font-size: 22px;
+  animation: floatUp linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  to {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px 12px;
+  }
+
+  .card {
+    padding: 28px 18px;
+    border-radius: 20px;
+  }
+
+  .letter {
+    padding: 20px 16px;
+  }
+
+  .letter p {
+    font-size: 15px;
+  }
+
+  .buttons {
+    gap: 12px;
+  }
+}
